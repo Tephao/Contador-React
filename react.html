@@ -13,25 +13,33 @@
     <div id = "root"></div>
     <script type = "text/babel">
 
-     function Contador({titulo}) {
+    //FUNCAO QUE GERA A ACAO AO CLICAR
+     function Contador ({titulo,contador,clicou}) {
       
-      const [Contador, setContador] = React.useState(0)        //Variavel controlada pelo React, ela sempre atualiza e envia o valor atualizado
+      //const [contador, setContador] = React.useState(0)        //Variavel controlada pelo React, ela sempre atualiza e envia o valor atualizado
 
-      function Clicou() {
+      /*function Clicou() {
         setContador(Contador+1);                              //chama a função contador enviando a váriavel adicionando mais 1
-      }
+      }*/
 
         return (
-            <button onClick = {Clicou}>                       
-              {titulo} : {Contador} 
+            <button onClick = {clicou}>                       
+              {titulo} : {contador} 
               </button>
         );
  }
       function MyApp() {
+        const [contador, setContador] = React.useState(0)       //Variavel contante agora no pao junto com a função clicou para ambos botões atualizarem a mesma variavel
+
+        //FUNCAO QUE AUMENTA A VARIAVEL
+        function clicou() {
+                setContador (contador + 1); 
+        }
+
         return (
             <>   
-                <Contador titulo="oi"></Contador>
-                <Contador titulo="bye"></Contador>
+                <Contador titulo ="oi" contador = {contador} clicou = {clicou}></Contador>
+                <Contador titulo ="bye" contador = {contador} clicou = {clicou}></Contador>
             </>
         );
       }
