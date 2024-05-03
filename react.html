@@ -10,13 +10,22 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="text/babel">
-    
+    <div id = "root"></div>
+    <script type = "text/babel">
+
      function Contador({titulo}) {
+      
+      const [Contador, setContador] = React.useState(0)        //Variavel controlada pelo React, ela sempre atualiza e envia o valor atualizado
+
+      function Clicou() {
+        setContador(Contador+1);                              //chama a função contador enviando a váriavel adicionando mais 1
+      }
+
         return (
-            <button>{titulo}</button>
-        )
+            <button onClick = {Clicou}>
+              {titulo} : {Contador} 
+              </button>
+        );
  }
       function MyApp() {
         return (
