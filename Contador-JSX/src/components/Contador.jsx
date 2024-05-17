@@ -4,10 +4,14 @@ function Contador () {
 
     const [count, setCount] = useState(0);
 
+    function add()
+{
+    setCount(count + 1)
+}
     return (
         <>
-        <button>
-         Contador: 
+        <button onclick = {add}>
+         Contador: {count}
         </button>
         </>
     );
